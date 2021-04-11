@@ -1,0 +1,100 @@
+body {
+    font-family: ±¼¸²Ã¼
+}
+
+div.body{
+	overflow-y: auto;
+    scrollbar-face-color: #C9BFED;
+    scrollbar-shadow-color: #EDEDED;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+tr.header{
+    background: #C9BFED;
+}
+
+tr.record{
+    background: #EDEDED;
+}
+
+input.itemId{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input.itemName{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input.frequency{
+	height: 20px;
+	width: 80px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input.description{
+	height: 20px;
+	width: 240px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input.term{
+	height: 20px;
+	width: 240px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+input.userId{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+input.userName{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+input.age{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+input.ssn{
+	height: 20px;
+	width: 150px;
+	border-width: 1px;
+	border-style: solid;
+}
+input.address{
+	height: 20px;
+	width: 240px;
+	border-width: 1px;
+	border-style: solid;
+}
+input.email{
+	height: 20px;
+	width: 100px;
+	border-width: 1px;
+	border-style: solid;
+}
+select.job{
+	width: 100px;
+}
+input.birthDay{
+	height: 20px;
+	width: 100px;
+	border-width: 1px;
+	border-style: solid;
+}

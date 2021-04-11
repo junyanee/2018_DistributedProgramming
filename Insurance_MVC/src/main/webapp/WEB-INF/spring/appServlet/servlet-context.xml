@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- HandlerMapping -->
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/itemEntry.html=itemEntryFormController
+				/itemList.html=itemListController
+				/itemDetail.html=itemDetailController
+				/userEntry.html=userEntryFormController
+
+            </value>
+		</property>
+	</bean>
+
+	<!-- Controller -->
+	<bean id="itemEntryFormController" class="com.spring.input.controller.ItemEntryFormController"
+		p:shopService-ref="shopService" 
+		p:itemEntryValidator-ref="itemEntryValidator"
+		p:messageSource-ref="messageSource">
+	</bean>
+
+	<bean id="userEntryFormController" class="com.spring.input.controller.UserEntryFormController"
+		p:shopService-ref="shopService" 
+		p:userEntryValidator-ref="userEntryValidator"
+		p:messageSource-ref="messageSource">
+	</bean>
+	
+	<bean id="itemListController" class="com.spring.input.controller.ItemListController"
+		p:shopService-ref="shopService">
+	</bean>
+	
+	<bean id="itemDetailController" class="com.spring.input.controller.ItemDetailController"
+		p:shopService-ref="shopService">
+	</bean>
+	
+	<bean id="shopService" class="com.spring.input.logic.ShopImpl" 
+		p:itemCatalog-ref="itemCatalog"
+		p:userCatalog-ref="userCatalog">
+	</bean>
+	
+	<bean id="itemEntryValidator" class="com.spring.input.utils.ItemEntryValidator"/>
+	
+	<bean id="userEntryValidator" class="com.spring.input.utils.UserEntryValidator"/>
+	
+
+	<bean id="messageSource"
+     class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+				<list>
+					<value>resources/messages</value>
+				</list>
+		</property>
+	</bean>
+     	
+    <bean class="com.spring.input.logic.UserCatalogImpl" id="userCatalog" 
+    	p:userDao-ref="userDao"> 
+    </bean>
+
+	<bean class="com.spring.input.dao.UserDaoImpl" id="userDao"> 
+	</bean>
+
+	<bean class="com.spring.input.logic.ItemCatalogImpl" id="itemCatalog" 
+		p:itemDao-ref="itemDao"> 
+	</bean>
+
+	<bean class="com.spring.input.dao.ItemDaoImpl" id="itemDao"> 
+	</bean>
+	
+	<!-- ViewResolver -->
+	<bean id="internalResourceViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix">
+			<value>WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+</beans>
